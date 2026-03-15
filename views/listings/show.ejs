@@ -26,7 +26,7 @@
   </div>
 
   <!-- Buttons -->
-  <% if(currUser && listing.owner._id.equals(currUser._id)){ %>
+ <% if(currUser && listing.owner && listing.owner._id.equals(currUser._id)){ %> 
   <div class="col-6 offset-3 mt-3 d-flex gap-3">
     <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark">
       Edit
