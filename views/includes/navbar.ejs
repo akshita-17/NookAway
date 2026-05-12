@@ -11,7 +11,7 @@
   }
   .btn-search i{
     display: inline;
-    margin-right:0.5rem ;
+    margin-right:0.5rem;
   }
   .search-input{
     border-radius: 25px;
@@ -22,40 +22,41 @@
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><img src="/nookaway-favicon-final.svg" height="36">
-</i>
-</a>
+    <a class="navbar-brand" href="/listings">
+      <img src="/nookaway-favicon-final.svg" height="36">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>    
+        <a class="nav-link" href="/listings">Explore</a>
       </div>
-      <div class="navbar-nav ms-auto">
-        <nav class="navbar bg-body">
-        <div class="container-fluid">
-        <form class="d-flex" role="search">
-        <input class="form-control me-2 search-input" type="search" placeholder="Search destinations" />
-        <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-    </div>
-  
-      </div>
-       <div class="navbar-nav ms-auto">
-      <a class="nav-link" href="/listings/new">Airbnb your home</a>
 
-   <% if (!currUser) { %>
+      <!-- ✅ removed inner <nav> wrapper, form sits directly here -->
+      <form class="d-flex ms-auto me-3" role="search" action="/listings" method="GET">
+        <input 
+          class="form-control me-2 search-input" 
+          type="search" 
+          name="search"
+          placeholder="Search destinations"
+          value="<%= typeof searchQuery !== 'undefined' ? searchQuery : '' %>" />
+        <button class="btn btn-search" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form>
+
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link" href="/listings/new">List your home</a>
+        <% if (!currUser) { %>
           <a class="nav-link" href="/signup"><b>Sign up</b></a>
           <a class="nav-link" href="/login"><b>Login</b></a>
         <% } %>
         <% if (currUser) { %>
           <a class="nav-link" href="/logout">Logout</a>
         <% } %>
-
-    </div>
+      </div>
     </div>
   </div>
 </nav>
-
-

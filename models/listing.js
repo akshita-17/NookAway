@@ -26,6 +26,22 @@ const listingSchema=new Schema({
         type:Schema.Types.ObjectId,
         ref:"User",
     },
+    geometry: {
+    type: {
+        type: String,
+        enum: ["Point"],
+    },
+    coordinates: {
+        type: [Number],
+    },
+},
+// models/listing.js — add inside listingSchema
+category: {
+    type: String,
+    enum: ["Trending", "Rooms", "Iconic Cities", "Mountains", "Amazing Pools",
+         "Camping", "Beaches", "Farms", "Arctic", "Domes", "Boats"],
+    default: "Trending",
+},
 
 });
 
