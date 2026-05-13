@@ -58,6 +58,4 @@ schema.js – Joi validation schemas for request validation
 - Search and filter functionality
 - Deployment on cloud platforms
 
-## Status
 
-Project currently under development.
